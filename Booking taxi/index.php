@@ -47,8 +47,8 @@ sort($jenis_mobil)
                 </div>
             </div>
             <div class="row">
-                <div class="col-lg-2"><label for="jarak_tempuh">Jarak (KM):</label></div>
-                <div class="col-lg-2"><input type="text" id="jarak_tempuh" name="jarak_tempuh"></div>
+                <div class="col-lg-2"><label for="jarak">Jarak (KM):</label></div>
+                <div class="col-lg-2"><input type="text" id="jarak" name="jarak"></div>
             </div>
             <div class="row">
                 <div class="col-lg-2"><button class="btn btn-primary" type="submit" value="pesan" name="Pesan">Pesan</button></div>
@@ -60,12 +60,13 @@ sort($jenis_mobil)
     <?php
 
     if (isset($_POST['Pesan'])) {
+        $jarak = $_POST['jarak'];
 
         $dataPemesanan = array(
             "nama" => $_POST['nama'],
             "no_hp" => $_POST['no_hp'],
             "jenis_mobil" => $_POST['jenis_mobil'],
-            "jarak_tempuh" => $_POST['jarak_tempuh']
+            "jarak" => $_POST['jarak'],
         );
 
         $berkas = "dataPesan.json";
@@ -87,7 +88,8 @@ sort($jenis_mobil)
                 <div class='col-sm-4'>Jenis Mobil : " . $dataPemesanan['jenis_mobil'] . "</div>
             </div>
             <div class='row'>
-                <div class='col-sm-4'>Jarak :" . $dataPemesanan['jarak_tempuh'] . "</div>
+                <div class='col-sm-4'>Jarak :" . $dataPemesanan['jarak'] . "</div>
+            </div>
             <div class='row'>
                 <div class='col-sm-4'>Total Tagihan :" .total_tagihan($jarak). "</div>
             </div>
